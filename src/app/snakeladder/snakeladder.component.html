@@ -1,0 +1,54 @@
+<!-- src/app/snake-ladder/snake-ladder.component.html
+
+<div>
+    <h2>Snake and Ladder Game</h2>
+  
+    <div *ngIf="winner">
+      <h3>{{ winner }} wins!</h3>
+    </div>
+  
+    <div *ngIf="!winner">
+      <p>Current Player: {{ currentPlayer }}</p>
+      <p>Dice Value: {{ diceValue }}</p>
+  
+      <button (click)="rollDice()" [disabled]="winner">Roll Dice</button>
+  
+      <div class="board">
+        <div *ngFor="let row of board; let i = index" class="row">
+          <div *ngFor="let cell of row; let j = index" class="cell">
+            {{ cell }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+   <!-- src/app/snake-ladder/snake-ladder.component.html -->
+
+<div>
+    <h2>Snake and Ladder Game</h2>
+  
+    <div *ngIf="winner">
+      <h3>{{ winner }} wins!</h3>
+    </div>
+  
+    <div *ngIf="!winner">
+      <p>Current Player: {{ currentPlayer }}</p>
+      <p>Player 1: {{ player1Position }} </p>
+      <p>Player 2: {{player2Position}}</p>
+      <!-- <p>Dice Value: {{ diceValue }}</p> -->
+     
+  
+      <button (click)="rollDice()" [disabled]="winner">Roll Dice {{ diceValue}}</button>
+  
+      <div class="board">
+        <div *ngFor="let row of board; let i = index" class="row">
+          <div *ngFor="let cell of row; let j = index" class="cell" [ngClass]="{ 'highlight': isPlayerCell(i, j) }">
+            
+            {{ cell }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
